@@ -7,7 +7,6 @@ postgresql://role:password@host:5432/databricks_postgres?sslmode=require)
 pointing at a native Postgres role with a static, non-expiring password.
 """
 
-import base64
 import os
 from contextlib import contextmanager
 
@@ -19,13 +18,13 @@ from sqlalchemy import create_engine
 _w = WorkspaceClient()
 
 _SCOPE = os.environ.get("LAKEBASE_SECRET_SCOPE", "database")
-_KEY = os.environ.get("LAKEBASE_SECRET_KEY", "lakebase-url")
+_KEY = os.environ.get("LAKEBASE_SECRET_KEY", "ticketing-system")
 
 
 def _lakebase_url() -> str:
-    """Fetch and decode the Lakebase connection URL from the Databricks secret scope."""
+    """Fetch the Lakebase connection URL from the Databricks secret scope."""
     secret = _w.secrets.get_secret(scope=_SCOPE, key=_KEY)
-    return base64.b64decode(secret.value).decode("utf-8")
+    return secret.value
 
 
 @contextmanager

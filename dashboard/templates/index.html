@@ -190,13 +190,14 @@
       }
 
       const result = safeJson(row.result);
+      const data = result.data || result;
 
       if (row.tool_name === "get_current_weather") {
 
-        const temp = result.temperature_f;
-        const conditions = result.conditions;
-        const humidity = result.humidity_percent;
-        const wind = result.wind_speed_mph;
+        const temp = data.temperature_f;
+        const conditions = data.conditions;
+        const humidity = data.humidity_percent;
+        const wind = data.wind_speed_mph;
 
         return `
           ${temp ?? "-"}°F ·
@@ -209,7 +210,7 @@
 
       if (row.tool_name === "get_forecast") {
 
-        const days = result.days || [];
+        const days = data.days || [];
 
         if (!days.length) {
           return "No forecast returned";
@@ -232,9 +233,9 @@
         "get_weather_recommendation"
       ) {
 
-        const rec = result.recommendations || {};
-        const forecast = result.forecast || {};
-        const reasons = result.reasoning || [];
+        const rec = data.recommendations || {};
+        const forecast = data.forecast || {};
+        const reasons = data.reasoning || [];
 
         return `
           Umbrella:

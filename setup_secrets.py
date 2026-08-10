@@ -20,22 +20,22 @@ w = WorkspaceClient()
 # )
 
 #w.secrets.create_scope(scope="database")
-w.secrets.put_secret(
-    scope="database",
-    key="alpaca-key-id",
-    string_value=getpass.getpass("Paste your key id ")
-)
+# w.secrets.put_secret(
+#     scope="database",
+#     key="alpaca-key-id",
+#     string_value=getpass.getpass("Paste your key id ")
+# )
+
+# w.secrets.put_secret(
+#     scope="database",
+#     key="alpaca-secret-key",
+#     string_value=getpass.getpass("Paste secret key ")
+# )
 
 w.secrets.put_secret(
     scope="database",
-    key="alpaca-secret-key",
-    string_value=getpass.getpass("Paste secret key ")
-)
-
-w.secrets.put_secret(
-    scope="database",
-    key="lakebase-url",
-    string_value=getpass.getpass("Paste your lakebase url")
+    key="ticketing-system",
+    string_value="postgresql://student:npg_3UjWMes9EiZA@ep-flat-sea-d8zkbf30.database.us-east-2.cloud.databricks.com/databricks_postgres?sslmode=require"
 )
 
 w.secrets.put_acl(
