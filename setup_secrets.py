@@ -32,11 +32,7 @@ w = WorkspaceClient()
 #     string_value=getpass.getpass("Paste secret key ")
 # )
 
-w.secrets.put_secret(
-    scope="database",
-    key="ticketing-system",
-    string_value="postgresql://student:npg_3UjWMes9EiZA@ep-flat-sea-d8zkbf30.database.us-east-2.cloud.databricks.com/databricks_postgres?sslmode=require"
-)
+
 
 w.secrets.put_acl(
     scope="database",
