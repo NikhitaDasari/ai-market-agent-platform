@@ -60,7 +60,7 @@ The project connects market/news context stored in Databricks Lakebase with a cu
 
 The market-news ingestion, article chunking, and embedding pipeline is implemented in the companion repository:
 
-**[Databricks Lakebase AI Data Pipeline](https://github.com/NikhitaDasari/databricks-lakebase-app-day-2)**
+**[AI Market Intelligence & Semantic Retrieval](https://github.com/NikhitaDasari/ai-market-semantic-retrieval)**
 
 ---
 
@@ -189,7 +189,7 @@ This project builds on a separate Databricks data-engineering pipeline that:
 - persists vectors in PostgreSQL/pgvector, and
 - supports semantic retrieval over both full documents and individual passages.
 
-See **[databricks-lakebase-app-day-2](https://github.com/NikhitaDasari/databricks-lakebase-app-day-2)** for that implementation.
+See **[AI Market Intelligence & Semantic Retrieval](https://github.com/NikhitaDasari/ai-market-semantic-retrieval)** for that implementation.
 
 ---
 
